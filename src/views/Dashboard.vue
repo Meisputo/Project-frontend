@@ -2,8 +2,8 @@
     <v-app class="body">
       <v-app-bar class="container" color="#233142" > 
           <v-app-bar-title class="title"> Gen Trade </v-app-bar-title> 
-            <v-btn class="btn" @click="orderModal = true"> ORDER </v-btn>
-            <v-btn class="btn"> ABOUT </v-btn> 
+            <v-btn class="btn" @click="orderModal = true"> Order </v-btn>
+            <v-btn class="btn"> About </v-btn> 
             <div 
               style="margin-right: 3%; margin-left: 1px; ">
                 <v-menu transition="slide-y-transition" open-on-hover>
@@ -13,7 +13,7 @@
                         color="primary"
                         v-bind="props"
                       >
-                        BRANDS
+                        Brands
                       </v-btn>
                     </template>
                     <v-list>

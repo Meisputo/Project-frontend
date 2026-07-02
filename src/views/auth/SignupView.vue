@@ -2,6 +2,7 @@
 import { RouterLink, useRouter } from 'vue-router';
 import { useAuthStore } from '../../stores/auth';
 import { ref, reactive } from 'vue';
+import Header from '../../components/layout/Header.vue';
 
 
     const auth = useAuthStore();
@@ -34,9 +35,7 @@ import { ref, reactive } from 'vue';
 </script>
 
 <template>
-    <!-- <div v-if="auth.isAuthenticated" >
-        <p> Hello {{ auth.currentUser.name }}</p>
-    </div> -->
+    <Header/>
         <div class="formbox">
             <div class="form" >
                 <h1>Sign up here</h1>
@@ -91,10 +90,13 @@ import { ref, reactive } from 'vue';
                 color="primary"
                 type="submit"
                 >
-                    submit
+                    Signup
                 </v-btn>
                 </v-responsive>
             </form>
+            </div>
+            <div>
+                <RouterLink to="/login"> Log in </RouterLink>
             </div>
         </div>
 </template>
@@ -105,14 +107,12 @@ import { ref, reactive } from 'vue';
 .formbox {
   max-width: 650px;
   background: #f1f7fe;
-  overflow: hidden;
   border-radius: 10px;
   color: #010101;
   margin-left: 35%;
   margin-top: 10%;
 }
 .form {
-   margin: 50px;
    margin-bottom: 20px;
 }
 h1 {

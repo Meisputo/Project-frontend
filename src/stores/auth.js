@@ -31,7 +31,7 @@ export const useAuthStore = defineStore('auth', () => {
         } catch (error) {
             console.error('Log in Failed', error);
 
-            return error;
+            return "Invalid User";
         }
     }
     const signup = async (credentials) => {
