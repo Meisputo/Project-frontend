@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { components } from "vuetify/dist/vuetify.js";
-// import { useAuthStore } from '@/stores/auth';
-
+import { useAuthStore } from "../stores/auth.js";
 
 
 const routes = [
@@ -18,7 +17,8 @@ const routes = [
         {
             path: '/dash',
             name: 'Dashboard',
-            component: () => import("../views/Dashboard.vue")
+            component: () => import("../views/Dashboard.vue"),
+            meta: { requireAuth: true }
         },
         {
             path: '/suzuki',
@@ -86,6 +86,20 @@ const router = createRouter ({
     history: createWebHistory(),
     routes
 })
+
+router.beforeEach(async (to, from, next) => {
+    const auth = useAuthStore();
+
+    if (!auth.isAuthResolved) {
+        await auth.attempt();
+    }
+
+    if (to.meta.requireAuth && !auth.isAuthenticated) {
+        next('/login');
+    } else {
+        next();
+    }
+});
 
 
 export default router

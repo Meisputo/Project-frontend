@@ -12,7 +12,7 @@
             </div>
         </nav>
         <v-btn class="burot" icon href="/dash">
-          <v-icon size="x-small" icon="mdi-home" color="orange" ></v-icon>    
+          <v-icon size="large" icon="mdi-home" color="orange" ></v-icon>    
         </v-btn>    
             <v-container class="body">
                 <div>
