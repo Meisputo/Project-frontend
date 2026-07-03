@@ -80,7 +80,7 @@ import axios from 'axios'
       });
 
     const handleSubmit = () => {
-        axios.post(`http://127.0.0.1:8000/api/order`,orderData)
+        axios.post('/api/order',orderData)
         .then((res) => {
             console.log(res.data)
             alert('Order Done!');

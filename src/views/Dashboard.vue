@@ -28,7 +28,9 @@
                 </v-menu>
             </div>
       </v-app-bar>
-    
+      <div class="displaybtn">
+        <v-btn class="btn" @click="displayModal = true"> View your Order</v-btn>
+      </div>
     <v-spacer class="space">  <h1 class="he1"> New Arrivals </h1></v-spacer>
     <v-container>
       <v-row>
@@ -236,17 +238,21 @@
       </v-row>
     </v-container>
   </v-app>
-  <Orders 
+    <Orders 
         v-model:orderModal="orderModal"
         :selectedBike="selectedBike"
-      >  
-    </Orders>
+      />  
+    
+    <DisplayOrders v-model:displayModal="displayModal"/>
+
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import { VBtn, VBtnGroup } from 'vuetify/components';
 import { RouterView, RouterLink } from 'vue-router';
+import { useAuthStore } from '../stores/auth.js';
+import DisplayOrders from '../components/DisplayOrders.vue';
 import Orders from './Orders.vue';
 import blade from '../assets/Suzuki/Raiderblade.png';
 import sniper from '../assets/Yamaha/Sniper155.png';
@@ -263,6 +269,7 @@ import axios from 'axios';
     const nmaxModal = ref(false);
     const advModal = ref(false);
     const orderModal = ref(false);
+    const displayModal = ref(false);
 
     const thisDropdown = ref(false);
 
@@ -305,6 +312,10 @@ import axios from 'axios';
     border: 0px;
     color: azure;
     font-size: 16px;
+  }
+  .displaybtn {
+    margin-top: 4%;
+    margin-left: 1%;
   }
   .title{
     margin-left: 3%;

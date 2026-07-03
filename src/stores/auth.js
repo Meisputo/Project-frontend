@@ -79,6 +79,16 @@ export const useAuthStore = defineStore('auth', () => {
         }
     }
 
+    const displayOrders = async () => {
+        try {
+            const res = await axios.get('/api/orders');
+            console.log(res.data);
+            order.value = res.data;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
     return {
         currentUser,
         isAuthenticated,
@@ -87,5 +97,6 @@ export const useAuthStore = defineStore('auth', () => {
         login,
         logout,
         attempt,
+        displayOrders,
     }
 });
