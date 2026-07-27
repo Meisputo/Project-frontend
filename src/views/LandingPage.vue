@@ -4,13 +4,10 @@ import Header from '../components/layout/Header.vue';
 </script>
 
 <template>
-    <Header/>
+    <Header />
     <main>
         <p>This is Home!</p>
     </main>
 </template>
 
-<style>
-
-
-</style>
+<style></style>
